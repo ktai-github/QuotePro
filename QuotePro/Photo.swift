@@ -10,7 +10,10 @@ import UIKit
 
 class Photo: NSObject {
 
-  var photo: String?
+  var photo: UIImage?
   
+  init(photo: UIImage) {
+    self.photo = photo
+  }
   
 }

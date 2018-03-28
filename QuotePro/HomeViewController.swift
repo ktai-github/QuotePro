@@ -8,8 +8,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+var quoteArray = [Quote]()
 
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SaveQuoteDelegate {
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -27,8 +29,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let statusTableViewCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 //    loadDataForView()
-//    statusTableViewCell.buddyNameLabel.text = infoForRows[indexPath.row][0] as? String
-//    statusTableViewCell.netAmountLabel.text = String(format:"%.02f", (infoForRows[indexPath.row][3] as! Float) )
+//    statusTableViewCell.buddyNameLabel.text = quoteArray[indexPath.row][0] as? String
+//    statusTableViewCell.netAmountLabel.text = quoteArray[indexPath.row][3] as? String
     
     return statusTableViewCell
   }
@@ -36,6 +38,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
   }
+
+  //MARK: save quote delegate function
+  func saveQuote(quote: Quote) {
+    quoteArray.append(quote)
+  }
+
 
 }
 

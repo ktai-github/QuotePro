@@ -142,9 +142,14 @@
                         <viewLayoutGuide key="safeArea" id="Wph-jk-VgU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quote Builder" id="Gy6-aB-Adn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="szd-gi-v41"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="szd-gi-v41">
+                            <connections>
+                                <action selector="saveButtonTouched:" destination="8Nk-YN-J0q" id="jJC-oM-kby"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="photoImageView" destination="uds-ab-YYU" id="hL7-Kz-yqZ"/>
                         <outlet property="quoteBuilderLabel" destination="ORM-rs-qmW" id="AFQ-Yc-zAf"/>
                         <outlet property="quoterBuilderLabel" destination="9S2-1x-Wxt" id="aSk-kC-YNg"/>
                     </connections>

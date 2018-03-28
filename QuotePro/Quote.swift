@@ -9,5 +9,13 @@
 import UIKit
 
 class Quote: NSObject {
+  
+  var quoteText: String
+  var quoter: String
+  
+  init(quoteText: String, quoter: String) {
+    self.quoteText = quoteText
+    self.quoter = quoter
+  }
 
 }
