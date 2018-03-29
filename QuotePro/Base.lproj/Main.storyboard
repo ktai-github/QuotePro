@@ -89,32 +89,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uds-ab-YYU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Always sanitize used iPads.&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORM-rs-qmW">
-                                <rect key="frame" x="5" y="69" width="365" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kevin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9S2-1x-Wxt">
-                                <rect key="frame" x="5" y="94.5" width="365" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-IJ-blK">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-IJ-blK">
                                 <rect key="frame" x="63" y="612" width="248" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-9o-8R6">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-9o-8R6">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
                                         <state key="normal" title="Change Quote"/>
                                         <connections>
                                             <action selector="changeQuoteButton:" destination="8Nk-YN-J0q" eventType="touchUpInside" id="3ka-YQ-jlc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-hi-xGI">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-hi-xGI">
                                         <rect key="frame" x="149" y="0.0" width="99" height="30"/>
                                         <state key="normal" title="Change Image"/>
                                         <connections>
@@ -126,18 +111,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Wph-jk-VgU" firstAttribute="trailing" secondItem="ORM-rs-qmW" secondAttribute="trailing" constant="5" id="4fm-wv-718"/>
-                            <constraint firstItem="9S2-1x-Wxt" firstAttribute="leading" secondItem="Wph-jk-VgU" secondAttribute="leading" constant="5" id="FnT-yR-lLk"/>
-                            <constraint firstItem="ORM-rs-qmW" firstAttribute="leading" secondItem="Wph-jk-VgU" secondAttribute="leading" constant="5" id="KwU-6m-nvt"/>
-                            <constraint firstItem="ORM-rs-qmW" firstAttribute="top" secondItem="Wph-jk-VgU" secondAttribute="top" constant="5" id="Oi6-fG-D3F"/>
-                            <constraint firstItem="9S2-1x-Wxt" firstAttribute="top" secondItem="ORM-rs-qmW" secondAttribute="bottom" constant="5" id="VPh-DK-izb"/>
-                            <constraint firstItem="uds-ab-YYU" firstAttribute="centerX" secondItem="Wph-jk-VgU" secondAttribute="centerX" id="W0b-Dd-h6G"/>
-                            <constraint firstItem="Wph-jk-VgU" firstAttribute="trailing" secondItem="9S2-1x-Wxt" secondAttribute="trailing" constant="5" id="ZpY-V4-fzY"/>
-                            <constraint firstItem="uds-ab-YYU" firstAttribute="width" secondItem="Wph-jk-VgU" secondAttribute="width" id="ko3-h9-UX0"/>
                             <constraint firstItem="fOh-IJ-blK" firstAttribute="bottom" secondItem="Wph-jk-VgU" secondAttribute="bottom" constant="-25" id="oCo-hK-5n7"/>
-                            <constraint firstItem="uds-ab-YYU" firstAttribute="height" secondItem="Wph-jk-VgU" secondAttribute="height" id="ugq-Uf-CeU"/>
-                            <constraint firstItem="uds-ab-YYU" firstAttribute="centerY" secondItem="Wph-jk-VgU" secondAttribute="centerY" id="vkD-Lk-jOP"/>
-                            <constraint firstItem="fOh-IJ-blK" firstAttribute="centerX" secondItem="9S2-1x-Wxt" secondAttribute="centerX" id="wPM-9y-1iH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wph-jk-VgU"/>
                     </view>
@@ -148,11 +122,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="photoImageView" destination="uds-ab-YYU" id="hL7-Kz-yqZ"/>
-                        <outlet property="quoteBuilderLabel" destination="ORM-rs-qmW" id="AFQ-Yc-zAf"/>
-                        <outlet property="quoterBuilderLabel" destination="9S2-1x-Wxt" id="aSk-kC-YNg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZf-Wm-8dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
