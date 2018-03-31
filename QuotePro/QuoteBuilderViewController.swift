@@ -46,7 +46,6 @@ class QuoteBuilderViewController: UIViewController {
       
       let photoManager = PhotoManager()
       photoManager.lorempixelNetworkRequest() {(image: UIImage) in
-//        let image = image
         let photo = Photo(photo: image)
         quote.photo = photo
         
@@ -85,9 +84,12 @@ class QuoteBuilderViewController: UIViewController {
   }
   
   @IBAction func changeQuoteButton(_ sender: UIButton) {
+    let oldPhoto = Photo(photo: (quoteView?.imageView.image)!)
+    
     let quoteManager = QuoteManager()
     quoteManager.forismaticNetworkRequest() {(quote: Quote) in
       let quote = quote
+      quote.photo = oldPhoto
       DispatchQueue.main.async {
         self.quoteView?.setupWithQuote(quote: quote)
         
