@@ -19,6 +19,7 @@ class QuoteBuilderViewController: UIViewController {
   @IBOutlet weak var photoImageView: UIImageView!
   
   var quote: Quote?
+  var quoteView: QuoteView?
   
   var saveQuoteDelegate: SaveQuoteDelegate?
   
@@ -29,10 +30,10 @@ class QuoteBuilderViewController: UIViewController {
         // Do any additional setup after loading the view.
   //  let view:QuoteView = QuoteView(frame: CGRect(x: 0, y: 0, width:  self.view.frame.width, height: 150))
    
-    let quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as! QuoteView
-    self.view.addSubview(quoteView)
+    quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as? QuoteView
+    self.view.addSubview(quoteView!)
     
-    quoteView.translatesAutoresizingMaskIntoConstraints = false
+    quoteView?.translatesAutoresizingMaskIntoConstraints = false
 
     let horizontalConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
     let verticalConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 75)
@@ -44,7 +45,7 @@ class QuoteBuilderViewController: UIViewController {
     quoteManager.forismaticNetworkRequest() {(quote: Quote) in
       let quote = quote
       DispatchQueue.main.async {
-        quoteView.setupWithQuote(quote: quote)
+        self.quoteView?.setupWithQuote(quote: quote)
         
       }
     }
@@ -70,12 +71,10 @@ class QuoteBuilderViewController: UIViewController {
   
   @IBAction func changeQuoteButton(_ sender: UIButton) {
     let quoteManager = QuoteManager()
-//    let quote = Quote(quoteText: "", quoter: "")
     quoteManager.forismaticNetworkRequest() {(quote: Quote) in
       let quote = quote
       DispatchQueue.main.async {
-        let quoteView = QuoteView()
-        quoteView.setupWithQuote(quote: quote)
+        self.quoteView?.setupWithQuote(quote: quote)
         
       }
     }
