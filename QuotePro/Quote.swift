@@ -17,6 +17,7 @@ class Quote: NSObject {
   init(quoteText: String, quoter: String) {
     self.quoteText = quoteText
     self.quoter = quoter
+//    self.photo = photo
   }
 
 }
