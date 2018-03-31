@@ -12,6 +12,7 @@ class Quote: NSObject {
   
   var quoteText: String
   var quoter: String
+  var photo: Photo?
   
   init(quoteText: String, quoter: String) {
     self.quoteText = quoteText

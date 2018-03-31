@@ -22,17 +22,41 @@ class QuoteBuilderViewController: UIViewController {
   
   var saveQuoteDelegate: SaveQuoteDelegate?
   
+  
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+  //  let view:QuoteView = QuoteView(frame: CGRect(x: 0, y: 0, width:  self.view.frame.width, height: 150))
+   
+    let quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as! QuoteView
+    self.view.addSubview(quoteView)
+    
+    quoteView.translatesAutoresizingMaskIntoConstraints = false
+
+    let horizontalConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+    let verticalConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 75)
+    let widthConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: self.view.bounds.width)
+    let heightConstraint = NSLayoutConstraint(item: quoteView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: self.view.bounds.height/2)
+    view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    
+    let quoteManager = QuoteManager()
+    quoteManager.forismaticNetworkRequest() {(quote: Quote) in
+      let quote = quote
+      DispatchQueue.main.async {
+        quoteView.setupWithQuote(quote: quote)
+        
+      }
     }
+    
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+  
+  
   @IBAction func saveButtonTouched(_ sender: UIBarButtonItem) {
     
     guard let unwQuoter = quoterBuilderLabel.text, let unwQuoteText = quoteBuilderLabel.text else { return }
@@ -45,12 +69,26 @@ class QuoteBuilderViewController: UIViewController {
   }
   
   @IBAction func changeQuoteButton(_ sender: UIButton) {
+    let quoteManager = QuoteManager()
+//    let quote = Quote(quoteText: "", quoter: "")
+    quoteManager.forismaticNetworkRequest() {(quote: Quote) in
+      let quote = quote
+      DispatchQueue.main.async {
+        let quoteView = QuoteView()
+        quoteView.setupWithQuote(quote: quote)
+        
+      }
+    }
+    
     
   }
   
   @IBAction func changeImageButton(_ sender: UIButton) {
+//    let manager = 
     
+//    Manager.shared.loadImage(with: url, into: photoImageView)
   }
+  
   
     /*
     // MARK: - Navigation

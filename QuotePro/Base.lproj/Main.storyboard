@@ -30,13 +30,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNt-jD-6kW">
-                                                    <rect key="frame" x="9" y="0.0" width="357" height="26.5"/>
+                                                    <rect key="frame" x="9" y="0.0" width="302" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Quoter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oP-hr-bCN">
-                                                    <rect key="frame" x="9" y="26.5" width="357" height="17"/>
+                                                    <rect key="frame" x="9" y="26.5" width="302" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -89,17 +89,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-IJ-blK">
-                                <rect key="frame" x="63" y="612" width="248" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="fOh-IJ-blK">
+                                <rect key="frame" x="63.5" y="84" width="248" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-9o-8R6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-9o-8R6">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
                                         <state key="normal" title="Change Quote"/>
                                         <connections>
                                             <action selector="changeQuoteButton:" destination="8Nk-YN-J0q" eventType="touchUpInside" id="3ka-YQ-jlc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-hi-xGI">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-hi-xGI">
                                         <rect key="frame" x="149" y="0.0" width="99" height="30"/>
                                         <state key="normal" title="Change Image"/>
                                         <connections>
@@ -111,7 +111,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fOh-IJ-blK" firstAttribute="bottom" secondItem="Wph-jk-VgU" secondAttribute="bottom" constant="-25" id="oCo-hK-5n7"/>
+                            <constraint firstItem="fOh-IJ-blK" firstAttribute="centerX" secondItem="gh5-59-YKB" secondAttribute="centerX" id="WZr-gV-BeY"/>
+                            <constraint firstItem="fOh-IJ-blK" firstAttribute="bottom" secondItem="Wph-jk-VgU" secondAttribute="top" constant="50" id="oCo-hK-5n7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wph-jk-VgU"/>
                     </view>

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		2C94C69C206C2F85007A3D02 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94C69B206C2F85007A3D02 /* QuoteBuilderViewController.swift */; };
 		2C94C69E206C3922007A3D02 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94C69D206C3922007A3D02 /* QuoteTableViewCell.swift */; };
-		2C94C6A0206C7288007A3D02 /* Quote.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C94C69F206C7288007A3D02 /* Quote.xib */; };
+		2C94C6A0206C7288007A3D02 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C94C69F206C7288007A3D02 /* QuoteView.xib */; };
 		2C94C6A2206C72C3007A3D02 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94C6A1206C72C3007A3D02 /* QuoteView.swift */; };
+		2C94C6C8206F0C74007A3D02 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94C6C7206F0C74007A3D02 /* QuoteManager.swift */; };
+		2C94C6CA206F6247007A3D02 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C94C6C9206F6247007A3D02 /* PhotoManager.swift */; };
 		2CDA4791206C1E3C0048827B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA4790206C1E3C0048827B /* AppDelegate.swift */; };
 		2CDA4793206C1E3C0048827B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA4792206C1E3C0048827B /* HomeViewController.swift */; };
 		2CDA4796206C1E3C0048827B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDA4794206C1E3C0048827B /* Main.storyboard */; };
@@ -24,8 +26,10 @@
 /* Begin PBXFileReference section */
 		2C94C69B206C2F85007A3D02 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
 		2C94C69D206C3922007A3D02 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
-		2C94C69F206C7288007A3D02 /* Quote.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Quote.xib; sourceTree = "<group>"; };
+		2C94C69F206C7288007A3D02 /* QuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
 		2C94C6A1206C72C3007A3D02 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		2C94C6C7206F0C74007A3D02 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
+		2C94C6C9206F6247007A3D02 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		2CDA478D206C1E3C0048827B /* QuotePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDA4790206C1E3C0048827B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDA4792206C1E3C0048827B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -86,9 +90,11 @@
 				2CDA47A4206C269C0048827B /* Photo.swift */,
 				2CDA4792206C1E3C0048827B /* HomeViewController.swift */,
 				2C94C69B206C2F85007A3D02 /* QuoteBuilderViewController.swift */,
+				2C94C6C7206F0C74007A3D02 /* QuoteManager.swift */,
+				2C94C6C9206F6247007A3D02 /* PhotoManager.swift */,
 				2C94C69D206C3922007A3D02 /* QuoteTableViewCell.swift */,
 				2CDA4794206C1E3C0048827B /* Main.storyboard */,
-				2C94C69F206C7288007A3D02 /* Quote.xib */,
+				2C94C69F206C7288007A3D02 /* QuoteView.xib */,
 				2C94C6A1206C72C3007A3D02 /* QuoteView.swift */,
 				2CDA4797206C1E3C0048827B /* Assets.xcassets */,
 				2CDA4799206C1E3C0048827B /* LaunchScreen.storyboard */,
@@ -168,7 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C94C6A0206C7288007A3D02 /* Quote.xib in Resources */,
+				2C94C6A0206C7288007A3D02 /* QuoteView.xib in Resources */,
 				2CDA479B206C1E3C0048827B /* LaunchScreen.storyboard in Resources */,
 				2CDA4798206C1E3C0048827B /* Assets.xcassets in Resources */,
 				2CDA4796206C1E3C0048827B /* Main.storyboard in Resources */,
@@ -239,9 +245,11 @@
 				2C94C69C206C2F85007A3D02 /* QuoteBuilderViewController.swift in Sources */,
 				2CDA47A5206C269C0048827B /* Photo.swift in Sources */,
 				2C94C69E206C3922007A3D02 /* QuoteTableViewCell.swift in Sources */,
+				2C94C6CA206F6247007A3D02 /* PhotoManager.swift in Sources */,
 				2CDA4793206C1E3C0048827B /* HomeViewController.swift in Sources */,
 				2C94C6A2206C72C3007A3D02 /* QuoteView.swift in Sources */,
 				2CDA47A3206C26910048827B /* Quote.swift in Sources */,
+				2C94C6C8206F0C74007A3D02 /* QuoteManager.swift in Sources */,
 				2CDA4791206C1E3C0048827B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
