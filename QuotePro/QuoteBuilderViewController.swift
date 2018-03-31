@@ -54,15 +54,6 @@ class QuoteBuilderViewController: UIViewController {
         }
       }
     }
-    
-//    let photoManager = PhotoManager()
-//    photoManager.lorempixelNetworkRequest() {(photo: UIImage) in
-//      let photo = photo
-//      DispatchQueue.main.async {
-//        self.quoteView?.setupWithQuote(quote: quote)
-        
-//      }
-//    }
   }
 
     override func didReceiveMemoryWarning() {
@@ -99,9 +90,22 @@ class QuoteBuilderViewController: UIViewController {
   }
   
   @IBAction func changeImageButton(_ sender: UIButton) {
-//    let manager = 
+//    let quoteManager = QuoteManager()
+//    quoteManager.forismaticNetworkRequest() {(quote: Quote) in
+//      let quote = quote
+    let quote = Quote(quoteText: (quoteView?.quoteLabel.text)!, quoter: (quoteView?.quoterLabel.text)!)
     
-//    Manager.shared.loadImage(with: url, into: photoImageView)
+      let photoManager = PhotoManager()
+      photoManager.lorempixelNetworkRequest() {(image: UIImage) in
+        let photo = Photo(photo: image)
+        quote.photo = photo
+        
+        DispatchQueue.main.async {
+          self.quoteView?.setupWithQuote(quote: quote)
+        }
+      }
+    }
+
   }
   
   
@@ -115,4 +119,4 @@ class QuoteBuilderViewController: UIViewController {
     }
     */
 
-}
+

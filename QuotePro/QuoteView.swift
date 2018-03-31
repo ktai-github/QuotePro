@@ -26,8 +26,8 @@ class QuoteView: UIView {
   }
 
   func setupWithQuote(quote: Quote) {
-    self.quoterLabel.text = "-" + quote.quoter
-    self.quoteLabel.text = "\"\(quote.quoteText)\""
+    self.quoterLabel.text = quote.quoter
+    self.quoteLabel.text = quote.quoteText
     self.imageView.image = quote.photo?.photo
     
   }
