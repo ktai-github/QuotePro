@@ -42,7 +42,7 @@ class QuoteBuilderViewController: UIViewController {
     
     let quoteManager = QuoteManager()
     quoteManager.forismaticNetworkRequest() {(quote: Quote) in
-      let quote = quote
+      self.quote = quote
       
       let photoManager = PhotoManager()
       photoManager.lorempixelNetworkRequest() {(image: UIImage) in
@@ -63,14 +63,15 @@ class QuoteBuilderViewController: UIViewController {
   
   @IBAction func saveButtonTouched(_ sender: UIBarButtonItem) {
     
-    guard let unwQuoter = quoteView?.quoterLabel.text,
-      let unwQuoteText = quoteView?.quoteLabel.text
-      else { return }
+//    guard let unwQuoter = quoteView?.quoterLabel.text,
+//      let unwQuoteText = quoteView?.quoteLabel.text
+//      else { return }
     
-    quote = Quote(quoteText: unwQuoteText, quoter: unwQuoter)
+//    quote = Quote(quoteText: unwQuoteText, quoter: unwQuoter)
+//    quote?.photo?.photo = (quoteView?.imageView.image)!
     //  func saveQuote(quote: Quote) {
 
-    self.saveQuoteDelegate?.saveQuote(quote: quote!)
+    self.saveQuoteDelegate?.saveQuote(quote: self.quote!)
 
     self.navigationController?.popViewController(animated: true)
 //    self.navigationController?.popToViewController((self.navigationController?.viewControllers[0])!, animated: true)

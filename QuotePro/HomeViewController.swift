@@ -46,10 +46,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let quote = quoteArray[indexPath.row]
+    shareQuoteImage(quote: quote)
+  }
+
+  func shareQuoteImage(quote: Quote) {
     //  DispatchQueue.main.async {
     let quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as! QuoteView
     
-    quoteView.setupWithQuote(quote: quoteArray[indexPath.row])
+    quoteView.setupWithQuote(quote: quote)
     UIGraphicsBeginImageContextWithOptions(quoteView.bounds.size, quoteView.isOpaque, quoteView.contentScaleFactor)
     quoteView.layer.render(in: UIGraphicsGetCurrentContext()!)
     quoteView.drawHierarchy(in: quoteView.bounds, afterScreenUpdates: true)
@@ -61,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     self.present(activityViewController, animated: true, completion: nil)
     // }  }
   }
-
+  
   //MARK: save quote delegate function
   func saveQuote(quote: Quote) {
     quoteArray.append(quote)
