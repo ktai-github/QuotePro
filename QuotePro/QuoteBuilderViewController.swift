@@ -44,15 +44,7 @@ class QuoteBuilderViewController: UIViewController {
       self.quote = quote
       
 //      return photo from network
-      let photoManager = PhotoManager()
-      photoManager.lorempixelNetworkRequest() {(image: UIImage) in
-        let photo = Photo(photo: image)
-        quote.photo = photo
-        
-        DispatchQueue.main.async {
-          self.quoteView?.setupWithQuote(quote: quote)
-        }
-      }
+      self.newPhotoFromNetwork(quote)
     }
   }
 
@@ -86,25 +78,30 @@ class QuoteBuilderViewController: UIViewController {
     }
   }
   
+  fileprivate func newPhotoFromNetwork(_ quote: Quote) {
+    // return new photo
+    let photoManager = PhotoManager()
+    photoManager.lorempixelNetworkRequest() {(image: UIImage) in
+      let photo = Photo(photo: image)
+      quote.photo = photo
+      
+      DispatchQueue.main.async {
+        self.quoteView?.setupWithQuote(quote: quote)
+      }
+    }
+    
+    // BUG: continuously returning new photo can cause the wrong photo to be saved
+  }
+  
   @IBAction func changeImageButton(_ sender: UIButton) {
     
     // keep current quote
     let quote = Quote(quoteText: (quoteView?.quoteLabel.text)!, quoter: (quoteView?.quoterLabel.text)!)
     
-      // return new photo
-      let photoManager = PhotoManager()
-      photoManager.lorempixelNetworkRequest() {(image: UIImage) in
-        let photo = Photo(photo: image)
-        quote.photo = photo
-        
-        DispatchQueue.main.async {
-          self.quoteView?.setupWithQuote(quote: quote)
-        }
-      }
+    self.newPhotoFromNetwork(quote)
     }
   }
-  
-  
+
     /*
     // MARK: - Navigation
 
