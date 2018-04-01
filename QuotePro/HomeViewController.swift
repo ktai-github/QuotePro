@@ -8,13 +8,17 @@
 
 import UIKit
 
-var quoteArray = [Quote]()
-
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SaveQuoteDelegate {
+  
+  @IBOutlet weak var quoteTableView: UITableView!
+  var quoteArray = Array<Quote>()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    self.quoteTableView.dataSource = self
+    self.quoteTableView.delegate = self
+//    self.quoteTableView.reloadData()
     
     
   }
@@ -25,27 +29,52 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
   }
 
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return quoteArray.count
   }
   
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let statusTableViewCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//    loadDataForView()
-//    statusTableViewCell.buddyNameLabel.text = quoteArray[indexPath.row][0] as? String
-//    statusTableViewCell.netAmountLabel.text = quoteArray[indexPath.row][3] as? String
+    var quoteTableViewCell = QuoteTableViewCell()
+      
+    quoteTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! QuoteTableViewCell
     
-    return statusTableViewCell
+    let quote = quoteArray[indexPath.row]
+    
+    quoteTableViewCell.quoteCellLabel.text = quote.quoteText
+    quoteTableViewCell.quoterCellLabel.text = quote.quoter
+    
+    return quoteTableViewCell
   }
 
   public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //  DispatchQueue.main.async {
+    let quoteView = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: nil)?.first! as! QuoteView
     
+    quoteView.setupWithQuote(quote: quoteArray[indexPath.row])
+    UIGraphicsBeginImageContextWithOptions(quoteView.bounds.size, quoteView.isOpaque, quoteView.contentScaleFactor)
+    quoteView.layer.render(in: UIGraphicsGetCurrentContext()!)
+    quoteView.drawHierarchy(in: quoteView.bounds, afterScreenUpdates: true)
+    
+    let quoteImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    let activityViewController = UIActivityViewController(activityItems: [quoteImage!], applicationActivities: nil)
+    activityViewController.popoverPresentationController?.sourceView = self.view
+    self.present(activityViewController, animated: true, completion: nil)
+    // }  }
   }
 
   //MARK: save quote delegate function
   func saveQuote(quote: Quote) {
     quoteArray.append(quote)
+    print(quote.quoteText)
+    quoteTableView.reloadData()
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowQuoteBuilder" {
+      let vc = segue.destination as! QuoteBuilderViewController
+      vc.saveQuoteDelegate = self
+    }
+  }
 
 }
 

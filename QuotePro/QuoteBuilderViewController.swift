@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SaveQuoteDelegate {
+protocol SaveQuoteDelegate: class {
   func saveQuote(quote: Quote)
 }
 
@@ -21,7 +21,7 @@ class QuoteBuilderViewController: UIViewController {
   var quote: Quote?
   var quoteView: QuoteView?
   
-  var saveQuoteDelegate: SaveQuoteDelegate?
+  weak var saveQuoteDelegate: SaveQuoteDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -63,15 +63,17 @@ class QuoteBuilderViewController: UIViewController {
   
   @IBAction func saveButtonTouched(_ sender: UIBarButtonItem) {
     
-    guard let unwQuoter = quoterBuilderLabel.text,
-      let unwQuoteText = quoteBuilderLabel.text
+    guard let unwQuoter = quoteView?.quoterLabel.text,
+      let unwQuoteText = quoteView?.quoteLabel.text
       else { return }
     
     quote = Quote(quoteText: unwQuoteText, quoter: unwQuoter)
-    
-    saveQuoteDelegate?.saveQuote(quote: quote!)
+    //  func saveQuote(quote: Quote) {
+
+    self.saveQuoteDelegate?.saveQuote(quote: quote!)
 
     self.navigationController?.popViewController(animated: true)
+//    self.navigationController?.popToViewController((self.navigationController?.viewControllers[0])!, animated: true)
   }
   
   @IBAction func changeQuoteButton(_ sender: UIButton) {
@@ -90,9 +92,6 @@ class QuoteBuilderViewController: UIViewController {
   }
   
   @IBAction func changeImageButton(_ sender: UIButton) {
-//    let quoteManager = QuoteManager()
-//    quoteManager.forismaticNetworkRequest() {(quote: Quote) in
-//      let quote = quote
     let quote = Quote(quoteText: (quoteView?.quoteLabel.text)!, quoter: (quoteView?.quoterLabel.text)!)
     
       let photoManager = PhotoManager()
