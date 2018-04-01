@@ -28,12 +28,10 @@ class QuoteManager {
         print("error during datatask to forismatic api \(String(describing: error))")
         return
       }
-      
       quote = self.parseJsonData(data: data)
       completionHandler(quote)
     }
     dataTask.resume()
-    
   }
   
   func parseJsonData(data: Data) -> Quote {
@@ -50,7 +48,5 @@ class QuoteManager {
     
     let quote = Quote(quoteText: quoteText, quoter: author)
     return quote
-    
   }
-  
 }
