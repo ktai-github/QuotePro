@@ -2,7 +2,8 @@
 //  QuoteManager.swift
 //  QuotePro
 //
-//  Created by KevinT, Chris Dean on 2018-03-28.
+//  Created by KevinT
+//  Based on code by Chris Dean https://github.com/ChrisJohnDean/QuotePro
 //  Copyright © 2018 KevinT. All rights reserved.
 //
 
