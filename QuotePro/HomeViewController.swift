@@ -3,6 +3,7 @@
 //  QuotePro
 //
 //  Created by KevinT on 2018-03-28.
+//  Based on code by Chris Dean https://github.com/ChrisJohnDean/QuotePro
 //  Copyright © 2018 KevinT. All rights reserved.
 //
 
